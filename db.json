@@ -1,0 +1,241 @@
+{
+	"categories": [
+		{
+			"id": 1,
+			"name": "Rock Clássico",
+			"description": "Os maiores clássicos do rock em vinil.",
+			"image": "/images/moon.png"
+		},
+		{
+			"id": 2,
+			"name": "Pop",
+			"description": "Grandes sucessos do pop em LP.",
+			"image": "/images/thriller.png"
+		},
+		{
+			"id": 3,
+			"name": "Jazz & Blues",
+			"description": "Coleção de jazz e blues.",
+			"image": "/images/miles.png"
+		},
+		{
+			"id": 4,
+			"name": "Metal",
+			"description": "Heavy Metal e Hard Rock.",
+			"image": "/images/meta.png"
+		},
+		{
+			"id": 5,
+			"name": "MPB",
+			"description": "Clássicos da música brasileira.",
+			"image": "/images/tim.png"
+		},
+		{
+			"id": 6,
+			"name": "Trilhas Sonoras",
+			"description": "Filmes, séries e games.",
+			"image": "/images/lord.png"
+		}
+	],
+	"products": [
+		{
+			"id": 1,
+			"name": "Pink Floyd - The Dark Side of the Moon",
+			"description": "Álbum clássico do Pink Floyd em vinil.",
+			"price": 1004.9,
+			"image": "/images/moon.png",
+			"categoryId": 1
+		},
+		{
+			"id": 2,
+			"name": "The Beatles - Abbey Road",
+			"description": "Um dos maiores discos da história dos Beatles.",
+			"price": 1109.9,
+			"image": "/images/road.png",
+			"categoryId": 1
+		},
+		{
+			"id": 3,
+			"name": "Queen - A Night at the Opera",
+			"description": "Clássico álbum do Queen.",
+			"price": 134.9,
+			"image": "/images/opera.png",
+			"categoryId": 1
+		},
+		{
+			"id": 4,
+			"name": "Led Zeppelin - IV",
+			"description": "Um dos maiores discos do rock mundial.",
+			"price": 1490.9,
+			"image": "/images/led.png",
+			"categoryId": 1
+		},
+
+		{
+			"id": 5,
+			"name": "Michael Jackson - Thriller",
+			"description": "O álbum pop mais vendido da história.",
+			"price": 1590.9,
+			"image": "/images/thriller.png",
+			"categoryId": 2
+		},
+		{
+			"id": 6,
+			"name": "Madonna - Like a Prayer",
+			"description": "Um dos maiores sucessos da carreira de Madonna.",
+			"price": 1390.9,
+			"image": "/images/madonna.png",
+			"categoryId": 2
+		},
+		{
+			"id": 7,
+			"name": "ABBA - Gold",
+			"description": "Coletânea com os grandes sucessos do ABBA.",
+			"price": 1290.9,
+			"image": "/images/abba.png",
+			"categoryId": 2
+		},
+		{
+			"id": 8,
+			"name": "Prince - Purple Rain",
+			"description": "Trilha sonora e álbum clássico de Prince.",
+			"price": 1490.9,
+			"image": "/images/prince.png",
+			"categoryId": 2
+		},
+
+		{
+			"id": 9,
+			"name": "Miles Davis - Kind of Blue",
+			"description": "Um dos maiores álbuns de jazz.",
+			"price": 1540.9,
+			"image": "/images/miles.png",
+			"categoryId": 3
+		},
+		{
+			"id": 10,
+			"name": "John Coltrane - Blue Train",
+			"description": "Clássico do jazz moderno.",
+			"price": 1390.9,
+			"image": "/images/blue.png",
+			"categoryId": 3
+		},
+		{
+			"id": 11,
+			"name": "B.B. King - Live at the Regal",
+			"description": "Um dos maiores registros do blues.",
+			"price": 1290.9,
+			"image": "/images/king.png",
+			"categoryId": 3
+		},
+		{
+			"id": 12,
+			"name": "Ella Fitzgerald - Ella and Louis",
+			"description": "Clássico vocal do jazz.",
+			"price": 1190.9,
+			"image": "/images/ella.png",
+			"categoryId": 3
+		},
+
+		{
+			"id": 13,
+			"name": "Metallica - Master of Puppets",
+			"description": "Um dos maiores álbuns.",
+			"price": 1640.9,
+			"image": "/images/meta.png",
+			"categoryId": 4
+		},
+		{
+			"id": 14,
+			"name": "Iron Maiden - Powerslave",
+			"description": "Clássico do heavy metal.",
+			"price": 1790.9,
+			"image": "/images/iron.png",
+			"categoryId": 4
+		},
+		{
+			"id": 15,
+			"name": "Black Sabbath - Paranoid",
+			"description": "Álbum fundamental do metal.",
+			"price": 1490.9,
+			"image": "/images/black.png",
+			"categoryId": 4
+		},
+		{
+			"id": 16,
+			"name": "Judas Priest - Painkiller",
+			"description": "Um dos grandes discos do metal.",
+			"price": 1590.9,
+			"image": "/images/judas.png",
+			"categoryId": 4
+		},
+
+		{
+			"id": 17,
+			"name": "Elis Regina - Falso Brilhante",
+			"description": "Um dos grandes álbuns da MPB.",
+			"price": 1040.9,
+			"image": "/images/judas.png",
+			"categoryId": 5
+		},
+		{
+			"id": 18,
+			"name": "Tim Maia - Racional",
+			"description": "Clássico da música brasileira.",
+			"price": 1190.9,
+			"image": "/images/tim.png",
+			"categoryId": 5
+		},
+		{
+			"id": 19,
+			"name": "Clube da Esquina - Milton Nascimento",
+			"description": "Um dos maiores discos da MPB.",
+			"price": 1340.9,
+			"image": "/images/milton.png",
+			"categoryId": 5
+		},
+		{
+			"id": 20,
+			"name": "Caetano Veloso - Transa",
+			"description": "Álbum histórico da MPB.",
+			"price": 1290.9,
+			"image": "/images/veloso.png",
+			"categoryId": 5
+		},
+
+		{
+			"id": 21,
+			"name": "Hans Zimmer - Interstellar",
+			"description": "Trilha sonora do filme Interstellar.",
+			"price": 1490.9,
+			"image": "/images/inter.png",
+			"categoryId": 6
+		},
+		{
+			"id": 22,
+			"name": "John Williams - Star Wars",
+			"description": "Trilha da saga Star Wars.",
+			"price": 1590.9,
+			"image": "/images/star.png",
+			"categoryId": 6
+		},
+		{
+			"id": 23,
+			"name": "Howard Shore - The Lord of the Rings",
+			"description": "Trilha sonora da trilogia.",
+			"price": 169.9,
+			"image": "/images/lord.png",
+			"categoryId": 6
+		},
+		{
+			"id": 24,
+			"name": "Hans Zimmer - The Dark Knight",
+			"description": "Trilha sonora do filme Batman.",
+			"price": 159.9,
+			"image": "/images/lord.png",
+			"categoryId": 6
+		}
+	],
+	"cart": [],
+	"favorites": []
+}

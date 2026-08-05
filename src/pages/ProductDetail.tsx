@@ -115,10 +115,10 @@ export default function ProductDetail() {
 				{/* Detalhes do produto */}
 				<div className='flex-1 flex flex-col gap-4 justify-center'>
 					<div className='flex items-start justify-between gap-4'>
-						<h1 className='text-2xl md:text-3xl font-bold text-[#1a3565]'>
+						<h1 className='text-2xl md:text-3xl font-bold textblack'>
 							{product.name}
 						</h1>
-						<div className='flex gap-3 text-[#e63963] text-xl mt-1'>
+						<div className='flex gap-3 text-red2 text-xl mt-1'>
 							<button
 								title={
 									isProductFavorite
@@ -138,10 +138,10 @@ export default function ProductDetail() {
 							</button>
 						</div>
 					</div>
-					<p className='text-[#1a3565] text-base md:text-lg font-medium'>
+					<p className='textblack text-base md:text-lg font-medium'>
 						{product.description}
 					</p>
-					<div className='text-2xl md:text-3xl font-bold text-[#e63963] mt-2'>
+					<div className='text-2xl md:text-3xl font-bold text-red2 mt-2'>
 						{product.price.toLocaleString('pt-BR', {
 							style: 'currency',
 							currency: 'BRL',
@@ -150,13 +150,11 @@ export default function ProductDetail() {
 					</div>
 					{/* Quantidade */}
 					<div className='mt-4'>
-						<label className='block text-[#e63963] font-bold mb-1'>
-							Quantidade
-						</label>
+						<label className='block text-red2 font-bold mb-1'>Quantidade</label>
 						<select
 							value={quantity}
 							onChange={e => setQuantity(Number(e.target.value))}
-							className='w-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#e63963]'
+							className='w-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red2'
 						>
 							{[1, 2, 3, 4, 5].map(q => (
 								<option key={q} value={q}>
@@ -172,7 +170,7 @@ export default function ProductDetail() {
 						className={`mt-6 w-full md:w-auto font-bold py-3 px-8 rounded transition text-lg flex items-center justify-center gap-2 ${
 							isProductInCart
 								? 'bg-green-600 text-white cursor-not-allowed'
-								: 'bg-[#e63963] hover:bg-[#c72d53] text-white'
+								: 'bg-red1 hover:bg-red2 text-white'
 						}`}
 					>
 						<span className='text-xl'>🛒</span>

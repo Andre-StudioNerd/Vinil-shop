@@ -46,7 +46,7 @@ export const OurStore: React.FC = () => {
 								<EmailIcon className='text-blue1 mt-1' />
 								<div>
 									<h3 className='font-semibold text-gray-800'>E-mail</h3>
-									<p className='text-gray-600'>loja@zoop.com.br</p>
+									<p className='text-gray-600'>loja@Vinil Shop.com.br</p>
 								</div>
 							</div>
 

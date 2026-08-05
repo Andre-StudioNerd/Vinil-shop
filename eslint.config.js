@@ -26,8 +26,8 @@ export default tseslint.config([
 			globals: globals.browser,
 		},
 		rules: {
-			// Prettier
-			'prettier/prettier': 'error',
+			// Prettier: força auto para ignorar diferenças de CRLF/LF no Windows
+			'prettier/prettier': ['error', { endOfLine: 'auto' }],
 
 			// React
 			'react-hooks/rules-of-hooks': 'error',
@@ -55,7 +55,10 @@ export default tseslint.config([
 			'no-multi-spaces': 'error',
 			'no-mixed-spaces-and-tabs': 'error',
 			'no-irregular-whitespace': 'error',
-			'linebreak-style': ['error', 'unix'],
+
+			// Desativa a regra estrita de quebra de linha UNIX no ESLint
+			'linebreak-style': 'off',
+
 			'max-len': [
 				'warn',
 				{

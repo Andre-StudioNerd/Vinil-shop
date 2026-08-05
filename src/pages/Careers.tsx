@@ -39,9 +39,6 @@ export const Careers: React.FC = () => {
 						accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
 						quae ab illo inventore veritatis.
 					</p>
-					<button className='bg-blue1 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200'>
-						Candidatar-se
-					</button>
 				</div>
 
 				<div className='bg-gray-50 p-6 rounded-lg mb-6'>
@@ -53,9 +50,6 @@ export const Careers: React.FC = () => {
 						fugit, sed quia consequuntur magni dolores eos qui ratione
 						voluptatem sequi nesciunt.
 					</p>
-					<button className='bg-blue1 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200'>
-						Candidatar-se
-					</button>
 				</div>
 
 				<div className='bg-gray-50 p-6 rounded-lg mb-6'>
@@ -67,9 +61,6 @@ export const Careers: React.FC = () => {
 						consectetur, adipisci velit, sed quia non numquam eius modi tempora
 						incidunt.
 					</p>
-					<button className='bg-blue1 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200'>
-						Candidatar-se
-					</button>
 				</div>
 
 				<h2 className='text-2xl font-semibold text-gray-800 mb-4 mt-8 font-montserrat'>

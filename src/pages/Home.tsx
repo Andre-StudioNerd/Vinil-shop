@@ -2,9 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryCard from '../components/CategoryCard';
 import ProductCardWithFavorites from '../components/ProductCardWithFavorites';
-
 import Accordion from '../components/Accordion';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import WelcomeModal from '../components/WelcomeModal';
 import { useCategories, useProducts, useSearch } from '../hooks';
 
@@ -87,31 +85,22 @@ export function Home() {
 		<div className='bg-white'>
 			<WelcomeModal open={showWelcome} onClose={handleClose} />
 			{/* Banner principal */}
-			<section className='bg-blue1 text-white w-full'>
-				<div className='max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-8 sm:py-12 gap-6 lg:gap-8'>
+			<section
+				className='w-full h-[400px] text-white bg-cover bg-center bg-no-repeat'
+				style={{ backgroundImage: "url('/images/bg.png')" }}
+			>
+				<div className='max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 pt-[50px] pb-8 gap-6 lg:gap-8'>
 					<div className='flex-1 flex flex-col gap-4 text-center lg:text-left'>
-						<h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat leading-tight'>
-							Faça um <span className='text-blue2'>zoop</span>
-							<br />
-							<span className='text-magenta1 italic'>
-								e realize seus desejos!
-							</span>
-						</h1>
-						<p className='text-sm sm:text-base lg:text-lg max-w-md mx-auto lg:mx-0'>
+						<p className='text-sm sm:text-base lg:text-lg max-w-md mx-auto lg:mx-0 pt-[50px]'>
 							Encontre tudo que você precisa em um só lugar com 15% de desconto
 							na primeira compra!
 						</p>
 						<button
-							className='bg-magenta1 hover:bg-magenta2 text-white font-montserrat rounded px-6 py-3 w-max mx-auto lg:mx-0 mt-2 transition-colors duration-200'
+							className='bg-red1 hover:bg-red2 text-white font-montserrat rounded px-6 py-3 w-max mx-auto lg:mx-0 mt-2 transition-colors duration-200'
 							onClick={handleOpen}
 						>
 							Ganhar desconto!
 						</button>
-					</div>
-					<div className='flex-1 flex justify-center items-center'>
-						<ShoppingBagIcon
-							sx={{ fontSize: { xs: 200, sm: 240, lg: 288 }, color: 'white' }}
-						/>
 					</div>
 				</div>
 			</section>
@@ -125,7 +114,7 @@ export function Home() {
 						</h2>
 						<button
 							onClick={clearSearch}
-							className='text-magenta1 font-semibold hover:underline transition-colors duration-200'
+							className='text-red1 font-semibold hover:underline transition-colors duration-200'
 						>
 							Limpar busca
 						</button>
@@ -158,7 +147,11 @@ export function Home() {
 								<ProductCardWithFavorites
 									key={product.id}
 									image={product.image}
-									title={product.name}
+									title={
+										product.name.length > 23
+											? `${product.name.slice(0, 23)}...`
+											: product.name
+									}
 									description={product.description}
 									price={product.price.toFixed(2).replace('.', ',')}
 									actionLabel='Quero ver!'
@@ -245,7 +238,7 @@ export function Home() {
 							</h2>
 							<button
 								onClick={handleBackToHome}
-								className='text-magenta1 font-semibold hover:underline transition-colors duration-200'
+								className='text-red1 font-semibold hover:underline transition-colors duration-200'
 							>
 								Voltar ao início
 							</button>
@@ -282,7 +275,11 @@ export function Home() {
 										<ProductCardWithFavorites
 											key={product.id}
 											image={product.image}
-											title={product.name}
+											title={
+												product.name.length > 23
+													? `${product.name.slice(0, 23)}...`
+													: product.name
+											}
 											description={product.description}
 											price={product.price.toFixed(2).replace('.', ',')}
 											actionLabel='Quero ver!'
@@ -341,7 +338,11 @@ export function Home() {
 										<ProductCardWithFavorites
 											key={product.id}
 											image={product.image}
-											title={product.name}
+											title={
+												product.name.length > 23
+													? `${product.name.slice(0, 23)}...`
+													: product.name
+											}
 											description={product.description}
 											price={product.price.toFixed(2).replace('.', ',')}
 											actionLabel='Quero ver!'
@@ -375,27 +376,46 @@ export function Home() {
 				<Accordion
 					items={[
 						{
-							title: 'Como posso fazer devoluções de produtos na Zoop?',
+							title: 'Como posso fazer devoluções de produtos na Vinil Shop?',
 							content:
 								'As devoluções são simples! Basta trazer o item não utilizado com a nota fiscal para nossa loja dentro de 30 dias para troca ou reembolso.',
 						},
 						{
-							title: 'A Zoop oferece programa de fidelidade para clientes?',
+							title:
+								'A Vinil Shop oferece programa de fidelidade para clientes?',
 							content:
 								'Sim! Consulte nossas condições para participar do programa de fidelidade e ganhar benefícios exclusivos.',
 						},
 						{
-							title: 'Posso comprar online e retirar na loja física da Zoop?',
+							title:
+								'Posso comprar online e retirar na loja física da Vinil Shop?',
 							content:
 								'Sim! Você pode comprar online e escolher a opção de retirada em loja física no checkout.',
 						},
 						{
-							title: 'A Zoop oferece garantia para seus produtos?',
+							title: 'A Vinil Shop oferece garantia para seus produtos?',
 							content:
 								'Sim, todos os produtos possuem garantia conforme especificado no momento da compra.',
 						},
 					]}
 				/>
+			</section>
+			<section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12'>
+				<h2 className='text-xl sm:text-2xl font-bold font-montserrat text-center mb-2'>
+					Aviso
+				</h2>
+				<p className='text-justify text-gray-700 mb-6 text-sm sm:text-base'>
+					Este site foi desenvolvido exclusivamente para fins de portfólio e
+					demonstração de habilidades em desenvolvimento Front-end. Todas as
+					funcionalidades apresentadas têm caráter ilustrativo. O projeto não
+					possui um back-end funcional para processamento de pedidos. Por esse
+					motivo, as operações de finalização de compra, cadastro, login, envio
+					de formulários e armazenamento de dados não são realizadas. Nenhuma
+					informação informada pelo usuário é salva ou processada em um
+					servidor. O objetivo deste projeto é demonstrar a interface, a
+					experiência do usuário e a implementação das funcionalidades do
+					Front-end.
+				</p>
 			</section>
 		</div>
 	);

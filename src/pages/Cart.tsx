@@ -43,7 +43,7 @@ export default function Cart() {
 						<div className='w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4'>
 							<span className='text-3xl text-green-600'>✓</span>
 						</div>
-						<h1 className='text-2xl md:text-3xl font-bold text-[#1a3565] mb-2'>
+						<h1 className='text-2xl md:text-3xl font-bold text-black mb-2'>
 							Pedido Finalizado com Sucesso!
 						</h1>
 						<p className='text-gray-600 mb-6'>
@@ -53,33 +53,36 @@ export default function Cart() {
 					</div>
 
 					<div className='bg-[#f5f8fc] rounded-lg p-6 mb-6 text-left'>
-						<h2 className='text-xl font-bold text-[#1a3565] mb-4'>
+						<h2 className='text-xl font-bold text-black mb-4'>
 							Resumo do Pedido
 						</h2>
 						<div className='space-y-3'>
 							<div className='flex justify-between items-center'>
-								<span className='text-[#1a3565]'>Número do Pedido:</span>
-								<span className='font-bold text-[#e63963]'>
+								<span className='text-black'>Número do Pedido:</span>
+								<span className='font-bold text-red2'>
 									#{Math.random().toString(36).substr(2, 9).toUpperCase()}
 								</span>
 							</div>
 							<div className='flex justify-between items-center'>
-								<span className='text-[#1a3565]'>Data:</span>
-								<span className='font-bold text-[#1a3565]'>
+								<span className='text-black'>Data:</span>
+								<span
+									className='font-bold text-black
+								'
+								>
 									{new Date().toLocaleDateString('pt-BR')}
 								</span>
 							</div>
 							<div className='flex justify-between items-center'>
-								<span className='text-[#1a3565]'>Total de Itens:</span>
-								<span className='font-bold text-[#1a3565]'>
+								<span className='text-black'>Total de Itens:</span>
+								<span className='font-bold textblack'>
 									{orderSummary.items}
 								</span>
 							</div>
 							<div className='flex justify-between items-center border-t pt-3'>
-								<span className='text-lg font-bold text-[#1a3565]'>
+								<span className='text-lg font-bold textblack'>
 									Valor Total:
 								</span>
-								<span className='text-xl font-bold text-[#e63963]'>
+								<span className='text-xl font-bold text-red2'>
 									{orderSummary.total.toLocaleString('pt-BR', {
 										style: 'currency',
 										currency: 'BRL',
@@ -91,7 +94,7 @@ export default function Cart() {
 
 					<button
 						onClick={handleBackToHome}
-						className='bg-[#e63963] hover:bg-[#c72d53] text-white font-bold py-3 px-8 rounded transition text-lg'
+						className='bg-red1 hover:bg-red2 text-white font-bold py-3 px-8 rounded transition text-lg'
 					>
 						Voltar à Home
 					</button>
@@ -103,16 +106,16 @@ export default function Cart() {
 	return (
 		<div className='min-h-[70vh] flex flex-col items-center py-8 px-4 bg-[#f5f8fc]'>
 			<div className='w-full max-w-4xl bg-white rounded-lg shadow-md p-6 md:p-10'>
-				<h1 className='text-2xl md:text-3xl font-bold text-[#1a3565] mb-6'>
+				<h1 className='text-2xl md:text-3xl font-bold textblack mb-6'>
 					Seu carrinho
 				</h1>
 
 				{items.length === 0 ? (
 					<div className='text-center py-8'>
-						<p className='text-[#1a3565] mb-4'>Seu carrinho está vazio.</p>
+						<p className='textblack mb-4'>Seu carrinho está vazio.</p>
 						<button
 							onClick={handleContinueShopping}
-							className='bg-[#e63963] hover:bg-[#c72d53] text-white font-bold py-3 px-8 rounded transition text-lg'
+							className='bg-red1 hover:bg-red2 text-white font-bold py-3 px-8 rounded transition text-lg'
 						>
 							Continuar comprando
 						</button>
@@ -130,10 +133,8 @@ export default function Cart() {
 									className='w-24 h-24 object-contain rounded'
 								/>
 								<div className='flex-1 flex flex-col gap-1'>
-									<span className='font-semibold text-[#1a3565]'>
-										{item.name}
-									</span>
-									<span className='text-[#e63963] font-bold'>
+									<span className='font-semibold textblack'>{item.name}</span>
+									<span className='text-red2 font-bold'>
 										{item.price.toLocaleString('pt-BR', {
 											style: 'currency',
 											currency: 'BRL',
@@ -141,7 +142,7 @@ export default function Cart() {
 									</span>
 								</div>
 								<div className='flex items-center gap-2'>
-									<span className='text-[#1a3565]'>Qtd:</span>
+									<span className='textblack'>Qtd:</span>
 									<select
 										value={item.quantity}
 										onChange={e =>
@@ -163,7 +164,7 @@ export default function Cart() {
 										🗑️
 									</button>
 								</div>
-								<div className='font-bold text-[#1a3565] min-w-[80px] text-right'>
+								<div className='font-bold textblack min-w-[80px] text-right'>
 									{(item.price * item.quantity).toLocaleString('pt-BR', {
 										style: 'currency',
 										currency: 'BRL',
@@ -174,14 +175,12 @@ export default function Cart() {
 
 						<div className='flex flex-col md:flex-row justify-between items-center mt-6 gap-4'>
 							<div className='flex flex-col gap-2'>
-								<span className='text-lg text-[#1a3565]'>
+								<span className='text-lg textblack'>
 									Total de itens: {totalItems}
 								</span>
-								<span className='text-xl font-bold text-[#1a3565]'>
-									Subtotal:
-								</span>
+								<span className='text-xl font-bold textblack'>Subtotal:</span>
 							</div>
-							<span className='text-2xl font-bold text-[#e63963]'>
+							<span className='text-2xl font-bold text-red2'>
 								{totalPrice.toLocaleString('pt-BR', {
 									style: 'currency',
 									currency: 'BRL',
@@ -198,7 +197,7 @@ export default function Cart() {
 							</button>
 							<button
 								onClick={handleFinalizePurchase}
-								className='bg-[#e63963] hover:bg-[#c72d53] text-white font-bold py-3 px-8 rounded transition text-lg flex-1'
+								className='bg-red1 hover:bg-red2 text-white font-bold py-3 px-8 rounded transition text-lg flex-1'
 							>
 								Finalizar Compra
 							</button>

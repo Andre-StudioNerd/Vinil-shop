@@ -8,7 +8,7 @@ interface ActionButtonProps {
 }
 
 const variantClasses = {
-	primary: 'bg-magenta1 hover:bg-magenta2 text-white',
+	primary: 'bg-red1 hover:bg-red2 text-white',
 	secondary: 'bg-blue1 hover:bg-blue2 text-white',
 	danger: 'bg-red-500 hover:bg-red-600 text-white',
 };

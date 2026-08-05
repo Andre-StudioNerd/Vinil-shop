@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(
 		})();
 
 		return (
-			<div className='flex flex-col bg-blue3 rounded-lg shadow p-3 sm:p-4 w-full max-w-xs mx-auto'>
+			<div className='flex flex-col bg-graphite rounded-lg shadow p-3 sm:p-4 w-full max-w-xs mx-auto'>
 				{typeof image === 'string' ? (
 					<img
 						src={image}
@@ -67,15 +67,15 @@ const ProductCard: React.FC<ProductCardProps> = memo(
 						{image}
 					</div>
 				)}
-				<h3 className='font-montserrat font-bold text-blue1 text-sm sm:text-base mb-1 line-clamp-2'>
+				<h3 className='font-montserrat font-bold text-white text-sm sm:text-base mb-1 line-clamp-2'>
 					{processedTitle}
 				</h3>
-				<p className='text-xs text-blue1 mb-2 line-clamp-2 min-h-[32px] leading-relaxed'>
+				<p className='text-xs text-white mb-2 line-clamp-2 min-h-[32px] leading-relaxed'>
 					{processedDescription}
 				</p>
 
 				{/* Price display */}
-				<div className='font-montserrat font-bold text-base sm:text-lg text-blue1 mb-3'>
+				<div className='font-montserrat font-bold text-base sm:text-lg text-white mb-3'>
 					R$ {price}
 				</div>
 
@@ -84,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(
 						className={`font-montserrat rounded px-3 sm:px-4 py-2 transition-colors duration-200 text-sm sm:text-base mb-2 ${
 							isProductInCart
 								? 'bg-green-600 text-white cursor-not-allowed'
-								: 'bg-blue1 text-white hover:bg-blue2'
+								: 'bg-blue1 text-black hover:bg-blue2'
 						}`}
 						onClick={handleAddToCart}
 						disabled={isProductInCart}
@@ -95,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(
 				)}
 
 				<button
-					className='bg-magenta1 text-white font-montserrat rounded px-3 sm:px-4 py-2 hover:bg-magenta2 transition-colors duration-200 text-sm sm:text-base'
+					className='bg-red1 text-white font-montserrat rounded px-3 sm:px-4 py-2 hover:bg-red2 transition-colors duration-200 text-sm sm:text-base'
 					onClick={onAction}
 					type='button'
 				>

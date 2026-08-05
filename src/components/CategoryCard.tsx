@@ -41,7 +41,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 				{image}
 			</div>
 		)}
-		<span className='font-montserrat text-blue1 text-xs sm:text-sm font-semibold text-center leading-tight'>
+		<span className='font-montserrat text-black text-xs sm:text-sm font-semibold text-center leading-tight'>
 			{label}
 		</span>
 	</div>

@@ -203,7 +203,7 @@ export const AboutUs: React.FC = () => {
 			<div className='mt-8 text-center'>
 				<Link
 					to='/'
-					className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue1 hover:bg-blue-600 transition-colors duration-200'
+					className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red1 hover:bg-red2 transition-colors duration-200'
 				>
 					← Voltar para Home
 				</Link>

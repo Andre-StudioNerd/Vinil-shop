@@ -31,10 +31,10 @@ const FavoritesButton: React.FC<FavoritesButtonProps> = ({
 	return (
 		<button
 			onClick={handleToggleFavorite}
-			className={`p-2 rounded-full transition-colors duration-200 ${
+			className={`hidden md:flex items-center justify-center p-2 rounded-full transition-colors duration-200 ${
 				isProductFavorite
 					? 'bg-red-500 text-white hover:bg-red-600'
-					: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+					: 'bg-gray-600 text-white hover:bg-gray-300'
 			} ${className}`}
 			title={isProductFavorite ? 'Remove from favorites' : 'Add to favorites'}
 			type='button'
