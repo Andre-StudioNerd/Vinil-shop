@@ -13,7 +13,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 	onClick,
 }) => (
 	<div
-		className='flex flex-col items-center border-2 border-gray2 rounded-lg p-3 sm:p-4 w-full max-w-32 bg-white shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer'
+		className='flex flex-col items-center border-4 border-blue1 rounded-lg p-3 sm:p-4 w-full max-w-32 bg-gray2 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer'
 		style={{ userSelect: 'none' }}
 		onClick={onClick}
 	>

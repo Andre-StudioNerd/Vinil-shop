@@ -5,6 +5,7 @@ import ProductCardWithFavorites from '../components/ProductCardWithFavorites';
 import Accordion from '../components/Accordion';
 import WelcomeModal from '../components/WelcomeModal';
 import { useCategories, useProducts, useSearch } from '../hooks';
+import AlbumIcon from '@mui/icons-material/Album'; // Música / Vinil
 
 export function Home() {
 	const [showWelcome, setShowWelcome] = useState(false);
@@ -177,11 +178,12 @@ export function Home() {
 			{/* Categorias - só mostra se não há busca ativa */}
 			{!searchTerm && (
 				<section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12'>
-					<h2 className='text-xl sm:text-2xl font-bold font-montserrat text-center mb-2'>
-						Categorias
+					<h2 className='text-xl sm:text-2xl font-bold font-montserrat mb-2 flex items-center justify-center gap-2'>
+						<AlbumIcon className='text-black' sx={{ fontSize: '1.3em' }} />
+						<span className='underline'>Categorias</span>
 					</h2>
 					<p className='text-center text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base'>
-						Escolha a categoria de produto que você deseja:
+						Escolha a categoria que você deseja:
 					</p>
 
 					{loading && (

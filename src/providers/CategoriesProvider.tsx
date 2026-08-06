@@ -20,7 +20,9 @@ export const CategoriesProvider: React.FC<CategoriesProviderProps> = ({
 		const fetchCategories = async () => {
 			try {
 				setLoading(true);
-				const response = await fetch('http://localhost:3001/categories');
+				const response = await fetch(
+					'https://my-json-server.typicode.com/Andre-StudioNerd/Vinil-shop/categories'
+				);
 				if (!response.ok) {
 					throw new Error('Failed to fetch categories');
 				}

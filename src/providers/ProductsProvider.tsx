@@ -20,7 +20,9 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 		const fetchProducts = async () => {
 			try {
 				setLoading(true);
-				const response = await fetch('http://localhost:3001/products');
+				const response = await fetch(
+					'https://my-json-server.typicode.com/Andre-StudioNerd/Vinil-shop/products'
+				);
 				if (!response.ok) {
 					throw new Error('Failed to fetch products');
 				}
