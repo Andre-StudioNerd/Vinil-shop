@@ -23,26 +23,10 @@ const Footer: React.FC = () => (
 				<ul className='space-y-2 text-sm'>
 					<li>
 						<a
-							href='/nossa-historia'
+							href='/sobre-nos'
 							className='hover:underline transition-colors duration-200'
 						>
-							Nossa história
-						</a>
-					</li>
-					<li>
-						<a
-							href='/carreiras'
-							className='hover:underline transition-colors duration-200'
-						>
-							Carreiras
-						</a>
-					</li>
-					<li>
-						<a
-							href='/nossa-loja'
-							className='hover:underline transition-colors duration-200'
-						>
-							Nossa loja
+							Sobre nós
 						</a>
 					</li>
 				</ul>
