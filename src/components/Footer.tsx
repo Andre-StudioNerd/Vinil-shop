@@ -3,6 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import logo2 from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => (
 	<footer className='bg-black text-white font-montserrat mt-12'>
@@ -20,16 +21,12 @@ const Footer: React.FC = () => (
 			{/* Institucional */}
 			<div>
 				<h4 className='font-semibold mb-3 text-base'>Institucional</h4>
-				<ul className='space-y-2 text-sm'>
-					<li>
-						<a
-							href='/sobre-nos'
-							className='hover:underline transition-colors duration-200'
-						>
-							Sobre nós
-						</a>
-					</li>
-				</ul>
+				<Link
+					to='/sobre-nos'
+					className='text-white font-montserrat hover:underline transition-colors duration-200'
+				>
+					Sobre nós
+				</Link>
 			</div>
 			{/* SAC */}
 			<div>
