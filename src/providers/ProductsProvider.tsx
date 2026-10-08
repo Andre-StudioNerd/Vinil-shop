@@ -1,4 +1,10 @@
-import React, { useEffect, useState, type ReactNode } from 'react';
+import React, {
+	useEffect,
+	useState,
+	useMemo,
+	useCallback,
+	type ReactNode,
+} from 'react';
 import {
 	ProductsContext,
 	type ProductsContextType,
@@ -20,16 +26,25 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 		const fetchProducts = async () => {
 			try {
 				setLoading(true);
+				// 1. Removida a barra final desnecessária da URL
 				const response = await fetch(
-					'https://my-json-server.typicode.com/Andre-StudioNerd/Vinil-shop/products'
+					'https://api.jsonbin.io/v3/b/6ac7d3e8ffd5d1605359e87d/latest'
 				);
+
 				if (!response.ok) {
-					throw new Error('Failed to fetch products');
+					throw new Error('Falha ao carregar os produtos');
 				}
+
 				const data = await response.json();
-				setProducts(data || []);
+
+				// 2. Extração correta do array de dentro de data.record (JSONBin v3)
+				const productsList = Array.isArray(data.record)
+					? data.record
+					: data.record?.products || data.record?.car || [];
+
+				setProducts(productsList);
 			} catch (err) {
-				setError(err instanceof Error ? err.message : 'An error occurred');
+				setError(err instanceof Error ? err.message : 'Ocorreu um erro');
 			} finally {
 				setLoading(false);
 			}
@@ -38,40 +53,43 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 		fetchProducts();
 	}, []);
 
-	// Inefficient function - runs on every render (WITHOUT useMemo)
-	const getProductById = (id: string | number): Product | undefined => {
-		return products.find(
-			product => product.id === id || String(product.id) === String(id)
-		);
-	};
+	// Encapsulado em useCallback para manter referência estável nas re-renderizações
+	const getProductById = useCallback(
+		(id: string | number): Product | undefined => {
+			return products.find(product => String(product.id) === String(id));
+		},
+		[products]
+	);
 
-	// Inefficient function - runs on every render (WITHOUT useMemo)
-	const getProductsByCategory = (categoryId: string | number): Product[] => {
-		return products.filter(
-			product =>
-				product.categoryId === categoryId ||
-				String(product.categoryId) === String(categoryId)
-		);
-	};
+	const getProductsByCategory = useCallback(
+		(categoryId: string | number): Product[] => {
+			return products.filter(
+				product => String(product.categoryId) === String(categoryId)
+			);
+		},
+		[products]
+	);
 
-	// Inefficient function - runs on every render (WITHOUT useMemo)
-	const searchProducts = (query: string): Product[] => {
-		const lowercaseQuery = query.toLowerCase();
-		return products.filter(
-			product =>
-				product.name.toLowerCase().includes(lowercaseQuery) ||
-				product.description.toLowerCase().includes(lowercaseQuery)
-		);
-	};
+	const searchProducts = useCallback(
+		(query: string): Product[] => {
+			const lowercaseQuery = query.toLowerCase();
+			return products.filter(
+				product =>
+					product.name.toLowerCase().includes(lowercaseQuery) ||
+					product.description.toLowerCase().includes(lowercaseQuery)
+			);
+		},
+		[products]
+	);
 
-	// Inefficient statistics calculation - runs on every render
-	const productsStats = (() => {
+	// Otimizado com useMemo para recalcular estatísticas apenas quando a lista de produtos mudar
+	const productsStats = useMemo(() => {
 		const totalProducts = products.length;
 		const totalPrice = products.reduce(
 			(sum, product) => sum + product.price,
 			0
 		);
-		const averagePrice = totalPrice / totalProducts || 0;
+		const averagePrice = totalProducts ? totalPrice / totalProducts : 0;
 		const expensiveProducts = products.filter(
 			product => product.price > averagePrice
 		).length;
@@ -79,7 +97,6 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 			product => product.price <= averagePrice
 		).length;
 
-		// Grouping by category (heavy calculation)
 		const productsByCategory = products.reduce(
 			(acc, product) => {
 				const categoryId = String(product.categoryId);
@@ -100,46 +117,59 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 			cheapProducts,
 			productsByCategory,
 		};
-	})();
+	}, [products]);
 
-	// Function to get recommended products (heavy calculation)
-	const getRecommendedProducts = (productId: string | number) => {
-		const currentProduct = products.find(p => p.id === productId);
-		if (!currentProduct) return [];
+	const getRecommendedProducts = useCallback(
+		(productId: string | number) => {
+			const currentProduct = products.find(
+				p => String(p.id) === String(productId)
+			);
+			if (!currentProduct) return [];
 
-		// Simulates recommendation algorithm based on price and category
-		return products
-			.filter(
-				product =>
-					product.id !== productId &&
-					product.categoryId === currentProduct.categoryId &&
-					Math.abs(product.price - currentProduct.price) < 30
-			)
-			.slice(0, 4);
-	};
+			return products
+				.filter(
+					product =>
+						String(product.id) !== String(productId) &&
+						String(product.categoryId) === String(currentProduct.categoryId) &&
+						Math.abs(product.price - currentProduct.price) < 30
+				)
+				.slice(0, 4);
+		},
+		[products]
+	);
 
-	// Function to get products on sale (heavy calculation)
-	const getProductsOnSale = () => {
+	const getProductsOnSale = useCallback(() => {
+		if (products.length === 0) return [];
 		const averagePrice =
 			products.reduce((sum, product) => sum + product.price, 0) /
-				products.length || 0;
+			products.length;
 		return products
 			.filter(product => product.price < averagePrice * 0.8)
 			.slice(0, 6);
-	};
+	}, [products]);
 
-	const value: ProductsContextType = {
-		products,
-		loading,
-		error,
-		getProductById,
-		getProductsByCategory,
-		searchProducts,
-	};
+	// Otimização do objeto value passado ao Provider
+	const value: ProductsContextType = useMemo(
+		() => ({
+			products,
+			loading,
+			error,
+			getProductById,
+			getProductsByCategory,
+			searchProducts,
+		}),
+		[
+			products,
+			loading,
+			error,
+			getProductById,
+			getProductsByCategory,
+			searchProducts,
+		]
+	);
 
 	return (
 		<ProductsContext.Provider value={value}>
-			{/* Heavy calculations being displayed (cause re-renders) */}
 			<div style={{ display: 'none' }}>
 				{JSON.stringify(productsStats)}
 				{JSON.stringify(getRecommendedProducts(products[0]?.id || 0))}

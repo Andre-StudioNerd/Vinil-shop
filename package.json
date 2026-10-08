@@ -18,8 +18,6 @@
 		"@emotion/styled": "^11.14.1",
 		"@mui/icons-material": "^7.2.0",
 		"@mui/material": "^7.2.0",
-		"@types/react-router-dom": "^5.3.3",
-		"json-server": "^1.0.0-beta.3",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-icons": "^5.5.0",
@@ -38,6 +36,7 @@
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"eslint-plugin-react-refresh": "^0.4.20",
 		"globals": "^16.3.0",
+		"json-server": "^1.0.0-beta.3",
 		"postcss": "^8.5.6",
 		"prettier": "^3.2.5",
 		"tailwindcss": "^3.4.17",
@@ -45,5 +44,8 @@
 		"typescript-eslint": "^8.35.1",
 		"vite": "^7.0.3",
 		"vite-plugin-babel": "^1.7.3"
+	},
+	"allowScripts": {
+		"esbuild": true
 	}
 }
